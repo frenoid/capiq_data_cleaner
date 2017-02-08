@@ -6,7 +6,7 @@ set more off;
 * Change these 3 lines;
 local dir "C:\docs\gpn\capital iq\custsupp_universe";
 local selenium_dir "C:\Selenium\capitaliq\firm_lists";
-local gic_codes "computer_and_electronics_retail home_improvement_retail specialty_stores automotive_retail home_furnishing_retail";
+local gic_codes "real_estate_services";
 
 cd "`dir'";
 local logfile 0_create_download_lists.log;
