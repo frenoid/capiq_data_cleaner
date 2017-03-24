@@ -59,10 +59,12 @@ forvalues obs_no = 1/`total_firms' {;
 	scalar firmname = usubinstr(firmname, "¹", "", 100);
 	scalar firmname = usubinstr(firmname, "²", "", 100);
 	scalar firmname = usubinstr(firmname, "¡", "", 100);
-
+	scalar firmname = usubinstr(firmname, "™", "", 100);
+	
 	* Replace whitespace, parenthesis and colons etc with underscore;
 	scalar firmname = usubinstr(firmname, " ", "_", 100);
 	scalar firmname = usubinstr(firmname, " ", "_", 100);
+	scalar firmname = usubinstr(firmname, "­", "_", 100);
 	scalar firmname = usubinstr(firmname, "*", "_", 100);
 	scalar firmname = usubinstr(firmname, ":", "_", 100);
 	scalar firmname = usubinstr(firmname, "(", "_", 100);
@@ -74,6 +76,8 @@ forvalues obs_no = 1/`total_firms' {;
 	scalar firmname = usubinstr(firmname, "–", "_", 100);
 	scalar firmname = usubinstr(firmname, "·", "_", 100);
 	scalar firmname = usubinstr(firmname, "’", "_", 100);
+	scalar firmname = usubinstr(firmname, "«", "_", 100);
+	scalar firmname = usubinstr(firmname, "»", "_", 100);
 	* Removing diacritics;
 	scalar firmname = usubinstr(firmname, "Æ", "AE", 100);
 	scalar firmname = usubinstr(firmname, "æ", "ae", 100);
@@ -130,6 +134,8 @@ forvalues obs_no = 1/`total_firms' {;
 	scalar firmname = usubinstr(firmname, "ù", "u", 100);
 	scalar firmname = usubinstr(firmname, "µ", "u", 100);
 	scalar firmname = usubinstr(firmname, "š", "s", 100);
+	scalar firmname = usubinstr(firmname, "š", "s", 100);
+	scalar firmname = usubinstr(firmname, "§", "s", 100);
 	scalar firmname = usubinstr(firmname, "Ç", "C", 100);
 	scalar firmname = usubinstr(firmname, "ç", "c", 100);
 	scalar firmname = usubinstr(firmname, "Ñ", "N", 100);
@@ -222,6 +228,7 @@ foreach raw_file of local raw_files {;
 		scalar firmname = usubinstr(firmname, "¹", "", 100);
 		scalar firmname = usubinstr(firmname, "²", "", 100);
 		scalar firmname = usubinstr(firmname, "¡", "", 100);
+		scalar firmname = usubinstr(firmname, "™", "", 100);
 
 		* Replace whitespace, parenthesis and colons etc with underscore;
 		scalar firmname = usubinstr(firmname, " ", "_", 100);
@@ -237,6 +244,8 @@ foreach raw_file of local raw_files {;
 		scalar firmname = usubinstr(firmname, "–", "_", 100);
 		scalar firmname = usubinstr(firmname, "·", "_", 100);
 		scalar firmname = usubinstr(firmname, "’", "_", 100);
+		scalar firmname = usubinstr(firmname, "«", "_", 100);
+		scalar firmname = usubinstr(firmname, "»", "_", 100);
 		* Removing diacritics;
 		scalar firmname = usubinstr(firmname, "Æ", "AE", 100);
 		scalar firmname = usubinstr(firmname, "æ", "ae", 100);
@@ -293,6 +302,7 @@ foreach raw_file of local raw_files {;
 		scalar firmname = usubinstr(firmname, "ù", "u", 100);
 		scalar firmname = usubinstr(firmname, "µ", "u", 100);
 		scalar firmname = usubinstr(firmname, "š", "s", 100);
+		scalar firmname = usubinstr(firmname, "§", "s", 100);
 		scalar firmname = usubinstr(firmname, "Ç", "C", 100);
 		scalar firmname = usubinstr(firmname, "ç", "c", 100);
 		scalar firmname = usubinstr(firmname, "Ñ", "N", 100);
@@ -422,7 +432,7 @@ foreach raw_file of local raw_files {;
 
 		qui drop if CompanyName == "";
 		local obs_count = _N;
-		disp "Importing `relation_type' file for '" firmname "with `'obs_count observations";
+		disp "Importing `relation_type' file for " firmname " with `obs_count' observations";
 
 		keep CompanyName ParentCompany UltimateCorporateParent MajorityInvestor MinorityInvestors Investorsunknownstake RelationshipType StakeType Owned Currency LTMTotalRevenuesMM LTMNetIncomeMM LFQTotalDebtMM PeriodEndDate Headquarters PrimaryIndustry;
 

@@ -6,7 +6,7 @@ set more off;
 * Change these 3 lines;
 local dir "C:\docs\gpn\capital iq\custsupp_universe";
 local selenium_dir "C:\Selenium\capitaliq\firm_lists";
-local gic_codes "real_estate_services";
+local gic_codes "trucking";
 
 cd "`dir'";
 local logfile 0_create_download_lists.log;
@@ -15,7 +15,7 @@ cap erase `logfile';
 log using `logfile', replace;
 
 scalar download_lists_exported = 0;
-
+/*
 * Import the first file;
 foreach gic_code of local gic_codes {;
 	import excel using "`dir'/firm_lists/gic_pri_`gic_code'.xls", cellrange(A8) firstrow case(lower) clear;
@@ -46,7 +46,7 @@ foreach gic_code of local gic_codes {;
 		save "`dir'/dta/`gic_code'", replace;
 	};
 };
-
+*/
 * Export the download lists for use in capiq_report.py;
 * Make a copy in the selenium directory for later downloading;
 foreach gic_code of local gic_codes {;
