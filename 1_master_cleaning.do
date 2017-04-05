@@ -6,7 +6,7 @@ set more off;
 * set base_dir to the location of cleaning scripts, global since subsequent scripts use it;
 * set gic_codes_short to a list of shortened_gic_code_names;
 global base_dir_g "C:\docs\gpn\capital iq\custsupp_universe";
-local gic_codes_short "application_software";
+local gic_codes_short "advertising";
 
 global codes_processed = 0;
 
