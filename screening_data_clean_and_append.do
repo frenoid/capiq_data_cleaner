@@ -1,8 +1,8 @@
 #delimit ;
 set more off;
 set mem 600m;
-local num "3";
-local dir "C:\docs\gpn\capital iq\info_extraction\mass_`num'";
+local num "4";
+local dir "C:\Users\faslxkn\Documents\Capital IQ\mass\mass_`num'";
 
 cd "`dir'";
 

@@ -5,9 +5,9 @@ set more off;
 
 *********** Change as required *******************;
 * Set this to the cluster directory path, where raw corporate tree files are stored;
-local dir "C:\docs\gpn\capital iq\custsupp_universe\raw_data";
-local clean_dir "C:\docs\gpn\capital iq\custsupp_universe\cleaned_data";
-local gic_codes "apparel_accessories apparel_retail application_software auto_parts_and_equipment automobile_manufacturers automotive_retail biotechnology brewers broadcasting building_products cable_and_satellite casinos asset_management_and_custody_banks";
+local dir "C:\Users\faslxkn\capiq_data_cleaner\raw_data";
+local clean_dir "C:\Users\faslxkn\capiq_data_cleaner\cleaned_data";
+local gic_codes "advertising trading_companies";
 **************************************************;
 
 cd "`dir'";
